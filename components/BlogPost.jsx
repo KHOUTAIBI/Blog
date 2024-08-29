@@ -9,7 +9,7 @@ const BlogPost = ({post,handleEdit, handleDelete}) => {
     const {data: session} = useSession();
 
     return (
-    <div className="">
+    <div className="flex justify-center mb-10">
         <div className="">
             <Image
                 src={session?.user?.image}  

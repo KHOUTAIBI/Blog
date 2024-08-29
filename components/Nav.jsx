@@ -45,11 +45,12 @@ const Nav = () => {
             <div>
                 {session?.user ? (
 
-                //create post or sign out
+                //create post or sign out , the create post button will only be visible to the wesite's owner !
                     <div className='flex gap-3 md:gap-5'>
-                        <Link href={"/create-blog"} className='bg-indigo-500 text-white rounded-lg mr-2 pt-1 pb-1 pr-1 pl-1'>
-                            Create Post
-                        </Link>
+                        {session?.user?.id == "66ce2ec84db4d03df41b24e4" &&
+                            <Link href={"/create-blog"} className='bg-indigo-500 text-white rounded-lg mr-2 pt-1 pb-1 pr-1 pl-1'>
+                                Create Post
+                            </Link>}
                         <button onClick={signOut} type='button' className='bg-indigo-500 text-white rounded-lg mr-2 pt-1 pb-1 pr-1 pl-1'>
                             Sign Out
                         </button>
