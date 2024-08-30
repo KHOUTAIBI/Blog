@@ -54,6 +54,13 @@ const Nav = () => {
                         <button onClick={signOut} type='button' className='bg-indigo-500 text-white rounded-lg mr-2 pt-1 pb-1 pr-1 pl-1'>
                             Sign Out
                         </button>
+                        <Image
+                            src={session?.user?.image}
+                            alt=""
+                            className='rounded-full mr-2'
+                            width={35}
+                            height={35}
+                        />
                     </div>
                 ) : 
                 
