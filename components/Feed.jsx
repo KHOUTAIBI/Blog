@@ -27,11 +27,6 @@ const Feed = () => {
         )
   }
 
-  // here we get all of the posts
-  async function getPosts() {
-      const response = await axios.get(blogUrl)  
-      setBlogs(response);
-  }
 
   //Here we will handle the deletion of the posts !
   async function handleDelete(){
