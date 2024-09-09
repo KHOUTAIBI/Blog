@@ -2,7 +2,6 @@
 import BlogPost from './BlogPost'
 import { useState,useEffect,useContext } from 'react'
 import axios from 'axios'
-import { useSession } from 'next-auth/react'
 import { useRouter } from 'next/navigation'
 
 const blogUrl = ''
@@ -15,7 +14,8 @@ const Feed = () => {
   // This one will just show all of the blog posts in data
 
   const BlogPostList = ({data})=>{
-        return (
+      
+    return (
         <div>
           {data?.map((element,index) => {
               <BlogPost
@@ -31,6 +31,11 @@ const Feed = () => {
   async function getPosts() {
       const response = await axios.get(blogUrl)  
       setBlogs(response);
+  }
+
+  //Here we will handle the deletion of the posts !
+  async function handleDelete(){
+      const response = axios.delete()
   }
 
   //here we see the blog posts hopefully

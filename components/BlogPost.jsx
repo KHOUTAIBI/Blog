@@ -9,7 +9,7 @@ const BlogPost = ({post,handleEdit, handleDelete}) => {
     const {data: session} = useSession();
 
     return (
-    <div className="flex justify-center mb-10">
+    <div className="mb-20 ">
         <div className="">
             <Image
                 src={session?.user?.image}  
@@ -19,16 +19,17 @@ const BlogPost = ({post,handleEdit, handleDelete}) => {
                 className="rounded-full"
                 />  
         </div>
-        <div className="">
-            <h1 className="">
-                {post?.creator?.username}    
-            </h1>
-            <p>
-                {post?.creator?.email}
-            </p>
-        </div>
         <div>
             <p className=''>{post?.blog}</p>
+        </div>
+        
+        <div className="gap-4">
+            <button className="bg-white rounded-lg" onClick={handleDelete}>
+                delete
+            </button>
+            <button className="bg-white rounded-lg" onClick={handleEdit}>
+                edit
+            </button>
         </div>
     </div>
   )

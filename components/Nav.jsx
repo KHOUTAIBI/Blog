@@ -2,14 +2,21 @@
 
 //This is the navigation bar of the website, you can find here the providers, the font of the website, the style, the elements of the navigation and many other things
 
+import { useRouter } from 'next/navigation'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useState, useEffect } from 'react'
 import { useSession, getProviders, signIn, signOut } from 'next-auth/react'
 
+
 const Nav = () => {
     const { data: session } = useSession();
     const [providers, setProviders] = useState([]);
+    const router = useRouter();
+
+    //The url that directs to the users blog page
+    const userBlogPosts = `http://localhost:3000/users/${session?.user?.id}/posts`;
+
 
     useEffect(() => {
         const setupProviders = async () => {
@@ -19,6 +26,10 @@ const Nav = () => {
 
         setupProviders();
     }, []);
+
+    const handleGetMyPosts = async () => {
+        router.push(userBlogPosts);
+    }
 
     return (
         //links and their styles are found here
@@ -53,6 +64,10 @@ const Nav = () => {
                             </Link>}
                         <button onClick={signOut} type='button' className='bg-indigo-500 text-white rounded-lg mr-2 pt-1 pb-1 pr-1 pl-1'>
                             Sign Out
+                        </button>
+
+                        <button type='button' onClick={handleGetMyPosts}  className='bg-indigo-500 text-white rounded-lg mr-2 pt-1 pb-1 pr-1 pl-1' >
+                            My Posts
                         </button>
                         <Image
                             src={session?.user?.image}

@@ -15,7 +15,8 @@ const Page = () => {
   // Component to list all blog posts
   const BlogPostList = ({ data }) => {
     return (
-      <div>
+
+      <div className=''>
         {data?.map((element) => (
           <BlogPost
             post={element}
